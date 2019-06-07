@@ -4,7 +4,7 @@ import Character from './components/Character'
 
 function App() {
   return (
-    <div className="App">
+    <div className="App App-header">
       <Character/>
     </div>
   );
