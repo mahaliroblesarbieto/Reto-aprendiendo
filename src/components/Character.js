@@ -7,18 +7,27 @@ class Character extends Component {
     super(props);
 
     this.state = {
-      people: [], 
+      people: [],
+      cryptos: ['1','2','3','4','5','6','7','8','9'], 
     }
 
     this.getPeople = this.getPeople.bind(this); 
   }
 
   getPeople(){
-    return axios.get("https://swapi.co/api/people/")
-    .then((response) => {
-      console.log(response.data.results); 
-      this.setState( { people: response.data.results } )
+    const cryptos = this.state.cryptos;
+    // const people = this.state.people;
+    for (var i = 0; i < cryptos.length; i++){       
+      const cryptoUrl = 'https://swapi.co/api/people/?page=' + cryptos[i];
+      axios.get(cryptoUrl)
+        .then((response) => {
+        // console.log(response.data); 
+        // console.log(cryptoUrl)
+        console.log(this.state.people);
+        this.setState( {people: response.data.results} )
     })
+    }
+    
   }
 
   componentDidMount(){

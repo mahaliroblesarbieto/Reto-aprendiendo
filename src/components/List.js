@@ -23,9 +23,8 @@ class List extends Component {
         </form> */}
         {
         people.map((p) => {
-          console.log(p)
             return (
-              <div key={p.url}>
+              <div>
                 <h1 className="char-name">{p.name}</h1> 
                 <CharInfo charInfo={p} /> 
               </div>
