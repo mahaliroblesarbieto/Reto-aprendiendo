@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import CharInfo from './CharInfo'; 
-// import List from './List';
+
 
 class Character extends Component {
   constructor(props){
@@ -9,28 +9,21 @@ class Character extends Component {
 
     this.state = {
       people: [],
-      query: '',
+      input: '',
       cryptos: ['1','2','3','4','5','6','7','8','9'], 
     }
 
     this.getPeople = this.getPeople.bind(this); 
   }
 
-  handleInputChange = () => {
+  handleInputChange = (e) => {
     this.setState({
-      query: this.search.value
-    }, () => {
-      if (this.state.query && this.state.query.length > 1) {
-        if (this.state.query.length % 2 === 0) {
-          this.getPeople()
-        }
-      } 
+      input: e.target.value,
     })
   }
 
   getPeople(){
     const cryptos = this.state.cryptos;
-    // const people = this.state.people;
     for (var i = 0; i < cryptos.length; i++){       
       const cryptoUrl = 'https://swapi.co/api/people/?page=' + cryptos[i];
       axios.get(cryptoUrl)
@@ -52,7 +45,14 @@ class Character extends Component {
   }
 
   render() {
-    const {people} = this.state; 
+    const list = this.state.people
+      .filter((d) => this.state.input === '' || d.name.includes( this.state.input))
+      .map((d, index) => 
+      <div key={index}>
+        <h1>{d.name}</h1> 
+        <CharInfo charInfo={d} /> 
+      </div>
+      ); 
     return (
       <div className="App">
         <div>
@@ -64,79 +64,28 @@ class Character extends Component {
         </div>
         <form>
         <input
+            value={this.state.input} 
+            type="text"
             placeholder="BUSCAR"
-            ref={input => this.search = input}
-            onChange={this.handleInputChange}
+            onChange={this.handleInputChange.bind(this)}
         />
         </form>
-        {
-        people.map((p) => {
-            return (
-              <div>
-                <h1 className="char-name">{p.name}</h1> 
-                <CharInfo charInfo={p} /> 
-              </div>
-            )
-          })
+        <ul>
+        {list
+        // people.filter((d) => this.state.input === '' || d.includes(this.state.input)).map((p) => {
+        //     return (
+        //       <div>
+        //         <h1 className="char-name">{p.name}</h1> 
+        //         <CharInfo charInfo={p} /> 
+        //       </div>
+        //     )
+        //   })
         }
+        </ul>
       </div>
       </div>
     );
   }
-//  state = {
-//    query: '',
-//  }
-
-//  getInfo = () => {
-//   return axios.get("http://swapi.co/api/people")
-//   .then((response) => {
-//     console.log(response.data.results); 
-//     this.setState( { results: response.data.results } )
-//   })
-// }
-
-// //  getInfo = () => {
-// //   axios.get('http://swapi.co/api/people/1')
-// //     .then(({ data }) => {
-// //       this.setState({
-// //         results: data.data // MusicGraph returns an object named data, 
-// //                            // as does axios. So... data.data                             
-// //       })
-// //     })
-// // }
-
-// handleInputChange = () => {
-//   this.setState({
-//     query: this.search.value
-//   }, () => {
-//     if (this.state.query && this.state.query.length > 1) {
-//       if (this.state.query.length % 2 === 0) {
-//         this.getInfo()
-//       }
-//     } 
-//   })
-// }
-
-//  render() {
-//    return (
-//     <div>
-      // <div className="row">
-      //   <h1>STAR WARS</h1>
-      // </div>
-      // <div className="row">
-      //   <h2>PERSONAJES</h2>
-      // </div>
-      // <form>
-        // <input
-        //     placeholder="BUSCAR"
-        //     ref={input => this.search = input}
-        //     onChange={this.handleInputChange}
-        // />
-      //   <p>{this.state.query}</p>
-      // </form>
-//     </div>
-//    )
-//  }
 }
 
 export default Character
