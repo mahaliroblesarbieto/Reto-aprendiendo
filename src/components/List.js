@@ -3,7 +3,9 @@ import CharInfo from './CharInfo';
 
 class List extends Component {
   render() {
-    const people = this.props.people; 
+    const people = this.props.people;
+    const query = this.props.query;
+    const handleInputChange = this.props.handleInputChange; 
 
     return (
       <div>
@@ -13,14 +15,14 @@ class List extends Component {
         <div className="row">
           <h2>PERSONAJES</h2>
         </div>
-        {/* <form>
+        <form>
           <input
             placeholder="BUSCAR"
             ref={input => this.search = input}
-            onChange={this.handleInputChange}
+            onChange={handleInputChange}
           />
-          <p>{this.state.query}</p>
-        </form> */}
+          <p>{query}</p>
+        </form>
         {
         people.map((p) => {
             return (
