@@ -31,9 +31,9 @@ class CharInfo extends Component {
       <div className="user-details">
         <p className="btn btn-danger" onClick={this.close}>Hide info</p>
         <ul>
-          <li><h2>Gender: {info.gender}</h2></li> 
-            <li><h2>Birth date: {info.birth_year}</h2></li> 
-            <li><h2>Hair color: {info.hair_color}</h2></li> 
+          <li><h2>Peso: {info.mass}</h2></li> 
+            <li><h2>Año: {info.birth_year}</h2></li> 
+            <li><h2>Género: {info.gender}</h2></li> 
         </ul>
       </div>
     )
