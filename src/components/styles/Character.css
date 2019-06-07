@@ -1,0 +1,65 @@
+.App {
+    text-align: center;
+  }
+  
+  .App-header {
+    background-color: black;
+    min-height: 100vh;
+    /* display: flex; */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* font-size: calc(10px + 2vmin); */
+    color: white;
+  }
+
+  .margin{
+      padding-left: 30%;
+      margin-top: 2%;
+      margin-bottom: 0.1%;
+      padding-bottom: 0%
+  }
+
+  .input-search{
+      border-color: rgba(5, 113, 255, 0.801);
+      background-color: black;
+      width: 60%;
+      border-width: thin;
+      color: white;
+      padding: 0.5%
+  }
+
+  .template{
+      /* background-color: rgba(73, 162, 245, 0.5); */
+      /* border-color: rgba(5, 113, 255, 0.801); */
+      background:#17a2b8;
+      border-radius:5px;
+      height:100px;
+      width:250;
+      margin-bottom: 6%
+      /* background:none;
+border-style:solid;
+border:1px;
+border-color:#FFFFFF; */
+
+  }
+
+  .input-bottom{
+      margin-bottom: 5%
+  }
+
+  .margin-top{
+      padding-left: 30%;
+      margin-top: 0.1%;
+      padding-top: 0%
+  }
+
+  .size{
+      font-size: 400%;
+      font-weight: 700
+  }
+
+  .size-p{
+    font-size: 400%;
+    font-weight: 200
+}

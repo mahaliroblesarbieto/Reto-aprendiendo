@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import CharInfo from './CharInfo'; 
+import './styles/Character.css';
 
 
 class Character extends Component {
@@ -48,29 +49,32 @@ class Character extends Component {
     const list = this.state.people
       .filter((d) => this.state.input === '' || d.name.includes( this.state.input))
       .map((d, index) => 
-      <div key={index}>
+      <div className="col-md-4" key={index}>
+        <div className="template">
         <h1>{d.name}</h1> 
         <CharInfo charInfo={d} /> 
+        </div>
       </div>
       ); 
     return (
       <div className="App">
         <div>
-        <div className="row">
-          <h1>STAR WARS</h1>
+        <div className="row margin">
+          <h1 className="size">STAR WARS</h1>
         </div>
-        <div className="row">
-          <h2>PERSONAJES</h2>
+        <div className="row margin-top">
+          <p className="size-p">PERSONAJES</p>
         </div>
-        <form>
+        <form className="input-bottom">
         <input
+            className = "input-search"
             value={this.state.input} 
             type="text"
             placeholder="BUSCAR"
             onChange={this.handleInputChange.bind(this)}
         />
         </form>
-        <ul>
+        <div className="row">
         {list
         // people.filter((d) => this.state.input === '' || d.includes(this.state.input)).map((p) => {
         //     return (
@@ -81,7 +85,7 @@ class Character extends Component {
         //     )
         //   })
         }
-        </ul>
+        </div>
       </div>
       </div>
     );
