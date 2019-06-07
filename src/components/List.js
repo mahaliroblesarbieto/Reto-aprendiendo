@@ -1,38 +1,19 @@
 import React, { Component } from 'react';
-import CharInfo from './CharInfo'; 
+import { Link } from "react-router-dom";
+ 
 
 class List extends Component {
   render() {
-    const people = this.props.people;
-    const query = this.props.query;
-    const handleInputChange = this.props.handleInputChange; 
+    
 
     return (
       <div>
-        <div className="row">
-          <h1>STAR WARS</h1>
-        </div>
-        <div className="row">
-          <h2>PERSONAJES</h2>
-        </div>
-        <form>
-          <input
-            placeholder="BUSCAR"
-            ref={input => this.search = input}
-            onChange={handleInputChange}
-          />
-          <p>{query}</p>
-        </form>
-        {
-        people.map((p) => {
-            return (
-              <div>
-                <h1 className="char-name">{p.name}</h1> 
-                <CharInfo charInfo={p} /> 
-              </div>
-            )
-          })
-        }
+        <ul>
+          <li><h2>Peso:</h2></li> 
+            <li><h2>Año:</h2></li> 
+            <li><h2>Género:</h2></li> 
+        </ul>
+        <Link to='/'><p className="btn btn-danger">Volver</p></Link>
       </div>
       );
   }
