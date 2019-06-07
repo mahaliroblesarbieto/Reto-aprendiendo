@@ -30,15 +30,18 @@ class Character extends Component {
 
   getPeople(){
     const cryptos = this.state.cryptos;
-    const people = this.state.people;
+    // const people = this.state.people;
     for (var i = 0; i < cryptos.length; i++){       
       const cryptoUrl = 'https://swapi.co/api/people/?page=' + cryptos[i];
       axios.get(cryptoUrl)
         .then((response) => {
-        // console.log(response.data); 
-        // console.log(cryptoUrl)
         console.log(this.state.people);
-        this.setState( {people: response.data.results} );
+        this.setState(state => {
+          const people = state.people.concat(response.data.results);
+          return {
+            people,
+          };
+        });
     })
     }
     
