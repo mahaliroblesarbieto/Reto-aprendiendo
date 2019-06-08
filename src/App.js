@@ -1,27 +1,37 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import Character from './components/Character';
 import List from './components/List';
 import { BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
 
-function App() {
+class App extends Component {
+  constructor(props){
+    super(props);
+
+    this.state = {
+      info:{},
+    }
+
+  }
+  render(){
   return (
     <div className="App App-header">
        <Router>
        <Redirect
-       from="/"
-            to="/" />
+        from="/"
+        to="/" />
         <Switch>
-          <Route exact path="/" component={Character} />
-          {/* <Route path="/Character/"
-              component={Character} /> */}
+          <Route exact path="/" 
+             render={(props) => <Character {...props} info={this.state.info} />}
+            />
           <Route exact path="/List"
-              component={List} />
+            render={(props) => <List {...props} info={this.state.info} />} 
+            />
         </Switch>
       </Router>
-      {/* <Character/> */}
     </div>
   );
+  }
 }
 
 export default App;
