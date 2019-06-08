@@ -1,19 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 import Character from './components/Character';
 import List from './components/List';
 import { BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
 
-class App extends Component {
-  constructor(props){
-    super(props);
-
-    this.state = {
-      info:{},
-    }
-
-  }
-  render(){
+function App() {
   return (
     <div className="App App-header">
        <Router>
@@ -21,17 +12,13 @@ class App extends Component {
         from="/"
         to="/" />
         <Switch>
-          <Route exact path="/" 
-             render={(props) => <Character {...props} info={this.state.info} />}
-            />
+          <Route exact path="/" component={Character} />
           <Route exact path="/List"
-            render={(props) => <List {...props} info={this.state.info} />} 
-            />
+              component={List} />
         </Switch>
       </Router>
     </div>
   );
-  }
 }
 
 export default App;

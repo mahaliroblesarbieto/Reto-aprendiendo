@@ -11,7 +11,7 @@ class Character extends Component {
       people: [],
       input: '',
       cryptos: ['1','2','3','4','5','6','7','8','9'],
-      info: props.info,
+      // info: props.info,
     }
 
     this.getPeople = this.getPeople.bind(this); 
@@ -51,10 +51,10 @@ class Character extends Component {
       <div className="col-md-4" key={index}>
         <div className="template">
         <h1>{d.name}</h1> 
-        <Link to='/List'><button key={d} className="btn btn-info" onClick={() => this.setState({ info: d })}>VER DETALLE</button></Link>
+        <Link to={{ pathname: '/List', state: { info: d }}}><button className="btn btn-info">VER DETALLE</button></Link>
         </div>
       </div>
-      ); 
+      );
     return (
       <div className="App">
         <div>
@@ -83,3 +83,4 @@ class Character extends Component {
 }
 
 export default Character
+// onClick={() => this.setState({ info: d })}
