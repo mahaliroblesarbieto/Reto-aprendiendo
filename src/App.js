@@ -9,17 +9,14 @@ function App() {
     <div className="App App-header">
        <Router>
        <Redirect
-       from="/"
-            to="/" />
+        from="/"
+        to="/" />
         <Switch>
           <Route exact path="/" component={Character} />
-          {/* <Route path="/Character/"
-              component={Character} /> */}
           <Route exact path="/List"
               component={List} />
         </Switch>
       </Router>
-      {/* <Character/> */}
     </div>
   );
 }

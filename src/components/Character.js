@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import CharInfo from './CharInfo'; 
 import './styles/Character.css';
-
+import { Link } from "react-router-dom";
 
 class Character extends Component {
   constructor(props){
@@ -11,7 +10,8 @@ class Character extends Component {
     this.state = {
       people: [],
       input: '',
-      cryptos: ['1','2','3','4','5','6','7','8','9'], 
+      cryptos: ['1','2','3','4','5','6','7','8','9'],
+      // info: props.info,
     }
 
     this.getPeople = this.getPeople.bind(this); 
@@ -29,7 +29,6 @@ class Character extends Component {
       const cryptoUrl = 'https://swapi.co/api/people/?page=' + cryptos[i];
       axios.get(cryptoUrl)
         .then((response) => {
-        console.log(this.state.people);
         this.setState(state => {
           const people = state.people.concat(response.data.results);
           return {
@@ -52,10 +51,10 @@ class Character extends Component {
       <div className="col-md-4" key={index}>
         <div className="template">
         <h1>{d.name}</h1> 
-        <CharInfo charInfo={d} /> 
+        <Link to={{ pathname: '/List', state: { info: d }}}><button className="btn btn-info">VER DETALLE</button></Link>
         </div>
       </div>
-      ); 
+      );
     return (
       <div className="App">
         <div>
@@ -75,16 +74,7 @@ class Character extends Component {
         />
         </form>
         <div className="row">
-        {list
-        // people.filter((d) => this.state.input === '' || d.includes(this.state.input)).map((p) => {
-        //     return (
-        //       <div>
-        //         <h1 className="char-name">{p.name}</h1> 
-        //         <CharInfo charInfo={p} /> 
-        //       </div>
-        //     )
-        //   })
-        }
+        {list}
         </div>
       </div>
       </div>
@@ -93,3 +83,4 @@ class Character extends Component {
 }
 
 export default Character
+// onClick={() => this.setState({ info: d })}
