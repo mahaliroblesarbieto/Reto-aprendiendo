@@ -4,7 +4,6 @@ import './styles/Character.css';
  
 
 function List (props) {
-  console.log(props.location.state);
     return ( 
       <div>
         <ul>
