@@ -83,4 +83,3 @@ class Character extends Component {
 }
 
 export default Character
-// onClick={() => this.setState({ info: d })}
