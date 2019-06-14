@@ -45,8 +45,15 @@ class Character extends Component {
   }
 
   render() {
+    let newInput;
+    if(this.state.input.match(/\d+/g) !== null) {
+       newInput = this.state.input.toUpperCase()
+    } else { 
+      newInput=this.state.input.toLowerCase().replace(/\b\w/g, l => l.toUpperCase()) 
+    }
     const list = this.state.people
-      .filter((d) => this.state.input === '' || d.name.includes( this.state.input))
+      .sort((a, b) => (a.name > b.name ? 1 : -1))
+      .filter((d) => newInput === '' || d.name.includes( newInput))
       .map((d, index) => 
       <div className="col-md-4" key={index}>
         <div className="template">
