@@ -45,7 +45,9 @@ class Character extends Component {
   }
 
   render() {
-    const newInput = this.state.input.charAt(0).toUpperCase() + this.state.input.toLowerCase().slice(1);
+    // const newInput = this.state.input.charAt(0).toUpperCase() + this.state.input.toLowerCase().slice(1);
+    const inputLowerCase = this.state.input.toLowerCase();
+    const newInput = inputLowerCase.replace(/\b\w/g, l => l.toUpperCase());
     const list = this.state.people
       .filter((d) => newInput === '' || d.name.includes( newInput))
       .map((d, index) => 
