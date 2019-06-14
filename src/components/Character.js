@@ -51,8 +51,6 @@ class Character extends Component {
     } else { 
       newInput=this.state.input.toLowerCase().replace(/\b\w/g, l => l.toUpperCase()) 
     }
-    // const inputLowerCase = this.state.input.toLowerCase();
-    // newInput = inputLowerCase.replace(/\b\w/g, l => l.toUpperCase());
     const list = this.state.people
       .sort((a, b) => (a.name > b.name ? 1 : -1))
       .filter((d) => newInput === '' || d.name.includes( newInput))
