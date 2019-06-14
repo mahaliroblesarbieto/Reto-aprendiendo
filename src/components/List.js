@@ -4,14 +4,14 @@ import './styles/List.css';
  
 
 function List (props) {
-  console.log(props.location.state.info)
+  
     return ( 
       <div className="margin-h1">
         <h1 className="size-h1 margin-h1">{props.location.state.info.name}</h1>
         <div className="margin-info">
-          <p>Peso: {props.location.state.info.mass}</p>
-          <p>Año: {props.location.state.info.birth_year}</p>
-          <p>Género: {props.location.state.info.gender}</p> 
+          <p>Peso: {props.location.state.info.mass === 'unknown' ? 'Desconocido' : props.location.state.info.mass}</p>
+          <p>Año: {props.location.state.info.birth_year === 'unknown' ? 'Desconocido' : props.location.state.info.birth_year}</p>
+          <p>Género: {props.location.state.info.gender === 'female' ? 'Femenino' : props.location.state.info.gender === 'male' ? 'Masculino' : props.location.state.info.gender === 'none' ? 'Ninguno' : props.location.state.info.gender}</p> 
         </div>
         <div>
         <Link to='/'><p className="btn btn-danger">Volver</p></Link>
