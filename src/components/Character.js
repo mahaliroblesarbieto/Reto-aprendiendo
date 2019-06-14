@@ -45,8 +45,9 @@ class Character extends Component {
   }
 
   render() {
+    const newInput = this.state.input.charAt(0).toUpperCase() + this.state.input.toLowerCase().slice(1);
     const list = this.state.people
-      .filter((d) => this.state.input === '' || d.name.includes( this.state.input))
+      .filter((d) => newInput === '' || d.name.includes( newInput))
       .map((d, index) => 
       <div className="col-md-4" key={index}>
         <div className="template">
