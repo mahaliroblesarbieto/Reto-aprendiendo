@@ -57,8 +57,8 @@ class Character extends Component {
       .map((d, index) => 
       <div className="col-md-4" key={index}>
         <div className="template">
-        <h1>{d.name}</h1> 
-        <Link to={{ pathname: '/List', state: { info: d }}}><button className="btn btn-info">VER DETALLE</button></Link>
+        <p className="size-name">{d.name}</p> 
+        <Link to={{ pathname: '/List', state: { info: d }}}><p className="btn btn-info">VER DETALLE</p></Link>
         </div>
       </div>
       );
