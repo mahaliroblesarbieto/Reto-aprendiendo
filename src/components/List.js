@@ -11,7 +11,7 @@ function List (props) {
         <div className="margin-info">
           <p>Peso: {props.location.state.info.mass === 'unknown' ? 'Desconocido' : props.location.state.info.mass}</p>
           <p>Año: {props.location.state.info.birth_year === 'unknown' ? 'Desconocido' : props.location.state.info.birth_year}</p>
-          <p>Género: {props.location.state.info.gender}</p> 
+          <p>Género: {props.location.state.info.gender === 'female' ? 'Femenino' : props.location.state.info.gender === 'male' ? 'Masculino' : props.location.state.info.gender === 'none' ? 'Ninguno' : props.location.state.info.gender}</p> 
         </div>
         <div>
         <Link to='/'><p className="btn btn-danger">Volver</p></Link>
