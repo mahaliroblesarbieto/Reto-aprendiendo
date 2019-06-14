@@ -45,10 +45,14 @@ class Character extends Component {
   }
 
   render() {
-    // const newInput = this.state.input.charAt(0).toUpperCase() + this.state.input.toLowerCase().slice(1);
-    const inputLowerCase = this.state.input.toLowerCase();
-    // inputLowerCase.match(/\d+/g) !== null ? inputLowerCase.toUpperCase() : inputLowerCase
-    const newInput = inputLowerCase.replace(/\b\w/g, l => l.toUpperCase());
+    let newInput;
+    if(this.state.input.match(/\d+/g) !== null) {
+       newInput = this.state.input.toUpperCase()
+    } else { 
+      newInput=this.state.input.toLowerCase().replace(/\b\w/g, l => l.toUpperCase()) 
+    }
+    // const inputLowerCase = this.state.input.toLowerCase();
+    // newInput = inputLowerCase.replace(/\b\w/g, l => l.toUpperCase());
     const list = this.state.people
       .sort((a, b) => (a.name > b.name ? 1 : -1))
       .filter((d) => newInput === '' || d.name.includes( newInput))
