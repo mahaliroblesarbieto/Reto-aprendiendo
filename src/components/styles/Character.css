@@ -1,8 +1,21 @@
 .App {
     text-align: center;
+    background-color: black;
+    /* min-height: 100vh; */
+    /* display: flex; */
+    /* flex-direction: column; */
+    align-items: center;
+    /*
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+    /* font-size: calc(10px + 2vmin); */
+    color: white;
+    /* width: 100vw */
+
   }
   
-  .App-header {
+  /* .App-header {
     background-color: black;
     min-height: 100vh;
     display: flex;
@@ -11,7 +24,7 @@
     justify-content: center;
     font-size: calc(10px + 2vmin);
     color: white;
-  }
+  } */
 
   .size-name{
       font-size: 1.3rem;
@@ -19,8 +32,8 @@
   }
 
   .margin{
-      padding-left: 15%;
-      margin-top: 2%;
+      padding-left: 25%;
+      padding-top: 5%;
       margin-bottom: 0.1%;
       padding-bottom: 0%
   }
@@ -47,7 +60,7 @@
   }
 
   .margin-top{
-      padding-left: 15%;
+      padding-left: 25%;
       margin-top: 0.1%;
       padding-top: 0%
   }
@@ -68,10 +81,10 @@
 
 @media only screen and (min-width: 769px){
     .margin{
-        padding-left: 35%;
+        padding-left: 40%;
     }
 
     .margin-top{
-        padding-left: 35%;
+        padding-left: 40%;
     }
 }

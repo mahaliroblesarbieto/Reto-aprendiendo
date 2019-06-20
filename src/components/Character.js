@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './styles/Character.css';
 import { Link } from "react-router-dom";
+import {ArticleSw} from "./styles/character"
 
 class Character extends Component {
   constructor(props){
@@ -55,12 +56,10 @@ class Character extends Component {
       .sort((a, b) => (a.name > b.name ? 1 : -1))
       .filter((d) => newInput === '' || d.name.includes( newInput))
       .map((d, index) => 
-      <div className="col-md-4" key={index}>
-        <div className="template">
+      <ArticleSw>
         <p className="size-name">{d.name}</p> 
         <Link to={{ pathname: '/List', state: { info: d }}}><p className="btn btn-info">VER DETALLE</p></Link>
-        </div>
-      </div>
+      </ArticleSw>
       );
     return (
       <div className="App">
